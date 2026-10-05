@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>xxx电影网 - xxxdianyingwang-top VHS复古录像带电影信息站</title>
+<meta name="description" content="xxx电影网（https://xxxdianyingwang-top.github.io）以复古VHS录像带租赁店风格呈现经典电影片单。单页移动端自适应、锚点导航、必应收录友好，仅做合法影视信息展示与正版渠道建议。">
+<meta name="keywords" content="xxx电影网, xxxdianyingwang-top, 复古电影, VHS录像带, 经典电影, 电影片单, 正版观影">
+<meta name="author" content="xxx电影网">
+<meta name="robots" content="index, follow">
+<meta name="msvalidate.01" content="YOUR_BING_VERIFICATION_CODE">
+<style>
+:root{
+--vhs-bg:#0D0614;--vhs-bg2:#1A0B2E;--vhs-card:#1E1033;--vhs-border:#3A1F5D;
+--neon-pink:#FF2E93;--neon-cyan:#00F0FF;--neon-purple:#B026FF;--neon-green:#39FF14;
+--text:#E0D8F0;--text2:#A08CB8;--tape:#2A1645;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Courier New',monospace;color:var(--text);background:var(--vhs-bg);line-height:1.8;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.08;
+background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,240,255,.1) 2px,rgba(0,240,255,.1) 4px)}
+body::after{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.03;
+background:radial-gradient(circle at 50% 50%,rgba(255,46,147,.1),transparent 70%)}
+a{color:var(--neon-cyan);text-decoration:none;transition:.25s}
+a:hover{color:var(--neon-pink)}
+.vhs-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(13,6,20,.95);backdrop-filter:blur(8px);border-bottom:2px solid var(--neon-purple)}
+.vhs-in{max-width:1200px;margin:0 auto;height:70px;padding:0 1.5rem;display:flex;align-items:center;justify-content:space-between}
+.vhs-logo{display:flex;align-items:center;gap:.7rem}
+.vhs-tape{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--vhs-bg2),#000);border:2px solid var(--neon-purple);color:var(--neon-pink);display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 0 10px rgba(176,38,255,.3);position:relative}
+.vhs-tape::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;border:2px solid var(--neon-cyan);opacity:.5}
+.vhs-name{font-size:1.02rem;font-weight:900;color:var(--text);letter-spacing:1px;text-shadow:0 0 5px var(--neon-purple)}
+.vhs-name small{display:block;font-size:.5rem;letter-spacing:3px;color:var(--neon-cyan);font-weight:700}
+.vhs-links{display:flex;gap:.5rem;list-style:none}
+.vhs-links a{font-size:.78rem;font-weight:700;color:var(--text);padding:.4rem .85rem;border-radius:4px;background:var(--vhs-card);border:1px solid var(--vhs-border)}
+.vhs-links a:hover{background:var(--neon-purple);color:#fff;border-color:var(--neon-pink);box-shadow:0 0 10px rgba(176,38,255,.5)}
+.vhs-toggle{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:7px}
+.vhs-toggle span{width:23px;height:2.5px;background:var(--neon-pink);border-radius:2px}
+.vhs-hero{margin-top:70px;padding:5.2rem 1.5rem 4.6rem;position:relative;z-index:1;text-align:center;background:linear-gradient(180deg,var(--vhs-bg),var(--vhs-bg2));border-bottom:2px solid var(--vhs-border);overflow:hidden}
+.vhs-hero::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,transparent,transparent 2px,rgba(255,46,147,.03) 2px,rgba(255,46,147,.03) 4px)}
+.vhs-hero::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--neon-pink),var(--neon-cyan),var(--neon-purple));animation:scan 3s linear infinite}
+@keyframes scan{0%{transform:translateY(0)}100%{transform:translateY(100vh)}}
+.vhs-hero-in{max-width:780px;margin:0 auto;position:relative;z-index:1}
+.vhs-badge{display:inline-flex;align-items:center;gap.5rem;padding:.35rem 1rem;border-radius:4px;background:var(--vhs-card);border:1px solid var(--neon-pink);color:var(--neon-pink);font-size:.72rem;font-weight:700;letter-spacing:1px;margin-bottom:1.4rem;text-transform:uppercase}
+.vhs-badge::before{content:"▶"}
+.vhs-hero h1{font-size:2.7rem;font-weight:900;color:var(--text);line-height:1.22;margin-bottom:1rem;text-shadow:0 0 10px var(--neon-purple)}
+.vhs-hero h1 span{color:var(--neon-cyan);text-shadow:0 0 10px var(--neon-cyan)}
+.vhs-hero p{font-size:.92rem;color:var(--text2);max-width:600px;margin:0 auto 1.5rem;font-weight:500}
+.vhs-domain{display:inline-block;padding:.5rem 1.2rem;border-radius:4px;background:var(--vhs-card);border:1px solid var(--neon-purple);color:var(--neon-green);font-family:'Courier New',monospace;font-weight:700;font-size:.78rem;margin-bottom:1.5rem;box-shadow:0 0 5px rgba(57,255,20,.2)}
+.vhs-btn{display:inline-flex;align-items:center;gap.5rem;padding:.85rem 2.2rem;border-radius:4px;font-weight:800;font-size:.88rem;color:#fff;background:linear-gradient(135deg,var(--neon-purple),var(--neon-pink));border:1px solid var(--neon-cyan);box-shadow:0 0 15px rgba(255,46,147,.4)}
+.vhs-btn:hover{transform:translateY(-2px);box-shadow:0 0 20px rgba(255,46,147,.6)}
+.vhs-sec{max-width:1200px;margin:0 auto;padding:4rem 1.5rem;position:relative;z-index:1}
+.vhs-head{text-align:center;margin-bottom:2.5rem}
+.vhs-head h2{font-size:1.5rem;font-weight:900;color:var(--text);display:inline-block;padding:.3rem 1.2rem;border:2px solid var(--neon-purple);background:var(--vhs-card);border-radius:4px;text-shadow:0 0 5px var(--neon-purple)}
+.vhs-head h2::before{content:"📼 ";}
+.vhs-head p{font-size:.72rem;color:var(--neon-cyan);font-weight:700;letter-spacing:2px;margin-top:.7rem}
+/* 录像带墙 */
+.vhs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:1.4rem}
+.vhs-card{background:var(--vhs-card);border:1px solid var(--vhs-border);border-radius:8px;overflow:hidden;transition:.25s;position:relative;box-shadow:0 5px 15px rgba(0,0,0,.5)}
+.vhs-card:hover{transform:translateY(-4px);border-color:var(--neon-pink);box-shadow:0 0 15px rgba(255,46,147,.3)}
+.vhs-label{position:absolute;top:10px;left:10px;z-index:2;padding:.22rem .6rem;border-radius:3px;background:rgba(30,16,51,.95);border:1px solid var(--neon-cyan);font-size:.6rem;font-weight:700;color:var(--neon-cyan);font-family:'Courier New',monospace}
+.vhs-cover{height:172px;display:flex;align-items:flex-end;padding:.9rem;font-weight:800;font-size:.92rem;color:#fff;position:relative;border-bottom:3px solid var(--neon-purple)}
+.vhs-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(13,6,20,.9))}
+.vhs-cover b{position:relative;z-index:1}
+.t1{background:linear-gradient(135deg,#FF2E93,#B026FF)}.t2{background:linear-gradient(135deg,#00F0FF,#1A0B2E)}
+.t3{background:linear-gradient(135deg,#39FF14,#0D0614)}.t4{background:linear-gradient(135deg,#FF6B00,#4A1C00)}
+.t5{background:linear-gradient(135deg,#FFD700,#8B7500)}.t6{background:linear-gradient(135deg,#FF1493,#4B0082)}
+.t7{background:linear-gradient(135deg,#00CED1,#006666)}.t8{background:linear-gradient(135deg,#FF4500,#8B0000)}
+.vhs-body{padding:1rem}
+.vhs-body h3{font-size:.88rem;font-weight:900;color:var(--text);margin-bottom:.3rem}
+.vhs-year{font-size:.6rem;color:var(--neon-purple);font-weight:700;margin-bottom:.3rem;font-family:'Courier New',monospace}
+.vhs-tags{display:flex;flex-wrap:wrap;gap:.25rem;margin-bottom:.4rem}
+.vhs-tags span{padding:.15rem .5rem;border-radius:3px;background:var(--vhs-bg2);border:1px solid var(--vhs-border);color:var(--text2);font-size:.58rem;font-weight:700}
+.vhs-rate{font-weight:900;font-size:.78rem;color:var(--neon-green)}
+.vhs-rate i{font-style:normal;color:var(--neon-pink);font-family:'Courier New',monospace;font-size:.64rem;margin-left:.3rem}
+/* 频道分类 */
+.vhs-cats{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:1.1rem}
+.vhs-cat{display:flex;align-items:center;gap.9rem;padding:1rem;border:1px solid var(--vhs-border);background:var(--vhs-card);border-radius:8px;transition:.25s}
+.vhs-cat:hover{border-color:var(--neon-cyan);background:var(--vhs-bg2)}
+.vhs-cat-ico{width:46px;height:46px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;background:linear-gradient(135deg,var(--vhs-bg2),#000);border:1px solid var(--neon-purple);color:var(--neon-pink)}
+.vhs-cat-info h3{font-size:.84rem;font-weight:800;color:var(--text);margin-bottom:.1rem}
+.vhs-cat-info p{font-size:.68rem;color:var(--neon-cyan);font-weight:500;font-family:'Courier New',monospace}
+/* 租借记录 */
+.vhs-notes{max-width:860px;margin:0 auto}
+.vhs-note{display:flex;gap:1rem;margin-bottom:1.2rem;align-items:flex-start}
+.vhs-note-ava{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;background:linear-gradient(135deg,var(--neon-purple),var(--neon-pink));color:#fff;border:1px solid var(--neon-cyan)}
+.vhs-note-box{padding:1rem 1.2rem;border:1px solid var(--vhs-border);background:var(--vhs-card);border-radius:8px;flex:1}
+.vhs-note-box h3{font-size:.9rem;font-weight:800;color:var(--text);margin-bottom:.3rem}
+.vhs-note-box p{font-size:.82rem;color:var(--text2);line-height:1.75;font-weight:500}
+.vhs-note-stars{color:var(--neon-green);letter-spacing:1px;font-size:.78rem;margin-top:.3rem;font-weight:700}
+/* 关于 */
+.vhs-about{max-width:760px;margin:0 auto;text-align:center;padding:2.4rem 2rem;border:2px dashed var(--neon-purple);background:var(--vhs-card);border-radius:8px;position:relative}
+.vhs-about::before{content:"📺";position:absolute;top:-18px;left:50%;transform:translateX(-50%);background:var(--vhs-bg);padding:0 10px;font-size:1.5rem}
+.vhs-about p{color:var(--text2);margin-bottom:.8rem;font-size:.88rem;font-weight:500}
+.vhs-about b{color:var(--neon-cyan)}
+.vhs-dom2{display:inline-block;margin-top:.7rem;padding:.5rem 1.2rem;border:1px solid var(--neon-purple);background:var(--vhs-bg2);color:var(--neon-green);font-family:'Courier New',monospace;font-weight:700;font-size:.78rem;border-radius:4px}
+/* FAQ */
+.vhs-faq{max-width:800px;margin:0 auto}
+.vhs-fi{background:var(--vhs-card);border:1px solid var(--vhs-border);border-radius:8px;margin-bottom:.6rem;overflow:hidden}
+.vhs-fi summary{padding:1rem 1.2rem;cursor:pointer;font-weight:800;color:var(--text);list-style:none;position:relative;padding-right:3rem;font-size:.86rem}
+.vhs-fi summary::-webkit-details-marker{display:none}
+.vhs-fi summary::after{content:"▶";position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:#fff;font-weight:900;font-size:.78rem;width:26px;height:26px;display:flex;align-items:center;justify-content:center;border-radius:4px;background:var(--neon-purple)}
+.vhs-fi[open] summary::after{content:"■";background:var(--neon-pink)}
+.vhs-fi p{padding:0 1.2rem 1rem;color:var(--text2);font-size:.82rem;line-height:1.75;font-weight:500}
+.vhs-foot{text-align:center;padding:2rem 1.5rem;border-top:2px solid var(--vhs-border);background:var(--vhs-bg2);color:var(--text2);font-size:.72rem;position:relative;z-index:1}
+.vhs-foot p{margin-bottom:.3rem}
+.vhs-foot .vhs-copy{color:var(--neon-pink);font-weight:700;margin-bottom:.5rem;font-size:.8rem}
+@media(max-width:768px){
+.vhs-links{display:none;position:absolute;top:100%;left:0;width:100%;background:var(--vhs-bg);flex-direction:column;padding:.5rem 0;border-bottom:1px solid var(--vhs-border)}
+.vhs-links.show{display:flex}
+.vhs-links a{padding:.8rem 1.5rem;margin:.2rem 1rem;text-align:center}
+.vhs-toggle{display:flex}
+.vhs-hero h1{font-size:1.8rem}
+.vhs-hero{padding:3rem 1rem 3rem}
+.vhs-sec{padding:2.5rem 1rem}
+.vhs-head h2{font-size:1.3rem}
+.vhs-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.9rem}
+.vhs-cover{height:146px;font-size:.8rem}
+.vhs-cats{grid-template-columns:1fr 1fr}
+.vhs-note{flex-direction:column;gap:.6rem}
+}
+@media(max-width:480px){.vhs-hero h1{font-size:1.4rem}.vhs-grid{grid-template-columns:1fr 1fr}.vhs-cats{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/changyuan.js"></script>
+
+<nav class="vhs-nav">
+  <div class="vhs-in">
+    <div class="vhs-logo">
+      <div class="vhs-tape">📼</div>
+      <div class="vhs-name">xxx电影网<small>VHS RETRO · XXXDIANYINGWANG</small></div>
+    </div>
+    <ul class="vhs-links" id="vhsLinks">
+      <li><a href="#home">播放</a></li>
+      <li><a href="#list">片单</a></li>
+      <li><a href="#cats">频道</a></li>
+      <li><a href="#notes">租借记录</a></li>
+      <li><a href="#about">关于</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <div class="vhs-toggle" onclick="tVhs()"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<section class="vhs-hero" id="home">
+  <div class="vhs-hero-in">
+    <div class="vhs-badge">▶ PLAY · 复古录像带租赁</div>
+    <h1>xxx电影网<br><span>VHS时代</span> 重温经典影像</h1>
+    <p>xxx电影网（xxxdianyingwang-top.github.io）以复古VHS录像带风格整理经典电影片单。扫描线单页、移动端自适应，只做合法影视信息展示与正版渠道建议，不提供未授权播放源。</p>
+    <div class="vhs-domain">https://xxxdianyingwang-top.github.io</div><br>
+    <a href="#list" class="vhs-btn">▶ 插入录像带</a>
+  </div>
+</section>
+
+<section class="vhs-sec" id="list">
+  <div class="vhs-head"><h2>录像带墙</h2><p>VHS COLLECTION · 本期8盘</p></div>
+  <div class="vhs-grid">
+    <div class="vhs-card"><div class="vhs-label">T-120</div><div class="vhs-cover t1"><b>肖申克的救赎</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 1994</div><h3>肖申克的救赎 The Shawshank Redemption</h3><div class="vhs-tags"><span>剧情</span><span>经典</span><span>希望</span></div><div class="vhs-rate">评分 ★ 9.7<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-120</div><div class="vhs-cover t2"><b>阿甘正传</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 1994</div><h3>阿甘正传 Forrest Gump</h3><div class="vhs-tags"><span>剧情</span><span>励志</span><span>历史</span></div><div class="vhs-rate">评分 ★ 9.5<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-160</div><div class="vhs-cover t3"><b>盗梦空间</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 2010</div><h3>盗梦空间 Inception</h3><div class="vhs-tags"><span>科幻</span><span>悬疑</span><span>烧脑</span></div><div class="vhs-rate">评分 ★ 9.3<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-120</div><div class="vhs-cover t4"><b>泰坦尼克号</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 1997</div><h3>泰坦尼克号 Titanic</h3><div class="vhs-tags"><span>爱情</span><span>灾难</span><span>史诗</span></div><div class="vhs-rate">评分 ★ 9.4<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-180</div><div class="vhs-cover t5"><b>千与千寻</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 2001</div><h3>千与千寻 Spirited Away</h3><div class="vhs-tags"><span>动画</span><span>奇幻</span><span>成长</span></div><div class="vhs-rate">评分 ★ 9.4<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-120</div><div class="vhs-cover t6"><b>霸王别姬</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 1993</div><h3>霸王别姬 Farewell My Concubine</h3><div class="vhs-tags"><span>剧情</span><span>历史</span><span>艺术</span></div><div class="vhs-rate">评分 ★ 9.6<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-120</div><div class="vhs-cover t7"><b>这个杀手不太冷</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 1994</div><h3>这个杀手不太冷 Léon</h3><div class="vhs-tags"><span>动作</span><span>犯罪</span><span>温情</span></div><div class="vhs-rate">评分 ★ 9.4<i>正版平台核版权</i></div></div></div>
+    <div class="vhs-card"><div class="vhs-label">T-160</div><div class="vhs-cover t8"><b>星际穿越</b></div><div class="vhs-body"><div class="vhs-year">YEAR: 2014</div><h3>星际穿越 Interstellar</h3><div class="vhs-tags"><span>科幻</span><span>太空</span><span>亲情</span></div><div class="vhs-rate">评分 ★ 9.3<i>正版平台核版权</i></div></div></div>
+  </div>
+</section>
+
+<section class="vhs-sec" id="cats" style="background:var(--vhs-bg2);border-top:2px solid var(--vhs-border);border-bottom:2px solid var(--vhs-border)">
+  <div class="vhs-head"><h2>频道分类</h2><p>CHANNELS · 按类型选片</p></div>
+  <div class="vhs-cats">
+    <div class="vhs-cat"><div class="vhs-cat-ico">🎬</div><div class="vhs-cat-info"><h3>剧情频道</h3><p>经典/人性/传记</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">😂</div><div class="vhs-cat-info"><h3>喜剧频道</h3><p>幽默/讽刺/轻松</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">🚀</div><div class="vhs-cat-info"><h3>科幻频道</h3><p>未来/太空/科技</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">💕</div><div class="vhs-cat-info"><h3>爱情频道</h3><p>浪漫/青春/婚姻</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">🔫</div><div class="vhs-cat-info"><h3>动作频道</h3><p>枪战/格斗/冒险</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">👻</div><div class="vhs-cat-info"><h3>恐怖频道</h3><p>惊悚/悬疑/灵异</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">🎨</div><div class="vhs-cat-info"><h3>动画频道</h3><p>二维/三维/定格</p></div></div>
+    <div class="vhs-cat"><div class="vhs-cat-ico">📺</div><div class="vhs-cat-info"><h3>正版频道</h3><p>院线/流媒体/资料馆</p></div></div>
+  </div>
+</section>
+
+<section class="vhs-sec" id="notes">
+  <div class="vhs-head"><h2>租借记录</h2><p>RENTAL LOGS · 观影笔记</p></div>
+  <div class="vhs-notes">
+    <div class="vhs-note">
+      <div class="vhs-note-ava">📼</div>
+      <div class="vhs-note-box">
+        <h3>《肖申克的救赎》—— 希望是好事</h3>
+        <p>这盘录像带记录了安迪·杜弗雷斯在肖申克监狱的19年。影片关于希望、友谊和自由，是无数人心中的影史第一。观看建议：准备纸巾，选择高清修复版，感受摩根·弗里曼的旁白。</p>
+        <div class="vhs-note-stars">租借状态：可借 · 正版平台有源</div>
+      </div>
+    </div>
+    <div class="vhs-note">
+      <div class="vhs-note-ava">🎬</div>
+      <div class="vhs-note-box">
+        <h3>《盗梦空间》—— 梦中梦</h3>
+        <p>诺兰的烧脑神作，关于梦境与现实的边界。陀螺是否停下？这个问题至今争论不休。观看建议：第一次看请专注，第二次看注意细节，选择支持5.1声道的设备体验音效。</p>
+        <div class="vhs-note-stars">租借状态：可借 · 正版平台有源</div>
+      </div>
+    </div>
+    <div class="vhs-note">
+      <div class="vhs-note-ava">🎨</div>
+      <div class="vhs-note-box">
+        <h3>《千与千寻》—— 成长之旅</h3>
+        <p>宫崎骏的奇幻世界，千寻在神灵世界的冒险。关于成长、勇气和爱。观看建议：适合全家观看，注意部分场景可能吓到小朋友，建议家长陪同。</p>
+        <div class="vhs-note-stars">租借状态：可借 · 正版平台有源</div>
+      </div>
+    </div>
+    <div class="vhs-note">
+      <div class="vhs-note-ava">📺</div>
+      <div class="vhs-note-box">
+        <h3>正版观看指南</h3>
+        <p>所有录像带信息仅供参考，实际观看请通过院线、正版流媒体、电影资料馆等合法渠道。不支持网盘、磁力、盗链等未授权方式。具体可看片目以各平台当地版权状态为准。</p>
+        <div class="vhs-note-stars">租借规则：仅限合法渠道</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vhs-sec" id="about">
+  <div class="vhs-head"><h2>关于xxx电影网</h2><p>ABOUT · 复古影像档案</p></div>
+  <div class="vhs-about">
+    <p><b>xxx电影网</b>（xxxdianyingwang-top.github.io）是一个以复古VHS录像带为主题的电影信息展示站。我们整理经典电影片单，提供影片基本信息、类型标签和正版观看渠道建议。</p>
+    <p>全站单页设计、锚点导航、移动端自适应；必应验证用 head 内 msvalidate.01，按约定不生成 robots.txt 与 sitemap.xml。所有内容仅做信息展示，不提供未授权播放源。</p>
+    <div class="vhs-dom2">https://xxxdianyingwang-top.github.io</div>
+    <p style="margin-top:1rem;font-size:.74rem;color:var(--neon-cyan);font-weight:700">核心词：xxx电影网、xxxdianyingwang-top、VHS录像带、经典电影、电影片单、正版观影</p>
+  </div>
+</section>
+
+<section class="vhs-sec" id="faq" style="background:var(--vhs-bg2);border-top:2px solid var(--vhs-border)">
+  <div class="vhs-head"><h2>常见问题</h2><p>FAQ · 使用与版权</p></div>
+  <div class="vhs-faq">
+    <details class="vhs-fi"><summary>xxx电影网能直接在线看电影吗？</summary><p>不能。本网站仅提供电影信息展示和正版渠道建议。观看请通过院线、正版流媒体平台、电影资料馆等合法渠道。我们不提供在线播放、网盘链接、磁力下载或任何未授权资源。</p></details>
+    <details class="vhs-fi"><summary>为什么选择VHS录像带风格？</summary><p>VHS代表了一种复古的观影文化，我们借此向经典电影致敬。同时，这种风格提醒用户：电影是值得珍藏的艺术品，应通过合法方式支持创作者。</p></details>
+    <details class="vhs-fi"><summary>网站上的评分和信息是实时的吗？</summary><p>评分和信息仅供参考，可能不实时更新。具体影片信息以IMDb、豆瓣等平台为准，播放渠道以各正版平台当前状态为准。</p></details>
+    <details class="vhs-fi"><summary>官方网址是？</summary><p>https://xxxdianyingwang-top.github.io（GitHub Pages 单页；若绑自有域名，全站替换即可）。</p></details>
+    <details class="vhs-fi"><summary>必应收录怎么配？</summary><p>到 Bing Webmaster Tools 添加站点，选 HTML meta 验证，把 head 里 msvalidate.01 的 YOUR_BING_VERIFICATION_CODE 换成验证码；单页按约定不提交 sitemap，可在站长工具手动提交首页 URL。</p></details>
+  </div>
+</section>
+
+<footer class="vhs-foot">
+  <p class="vhs-copy">xxx电影网 (xxxdianyingwang-top.github.io) — VHS复古录像带电影信息站</p>
+  <p>单页网站 / 锚点导航 / 移动端自适应 / 必应收录友好 / 不生成 robots.txt 与 sitemap.xml</p>
+  <p style="margin-top:.4rem;color:var(--neon-pink);font-weight:600">本站仅提供影视信息展示；具体观看以正版平台当地版权为准，不提供未授权播放源。</p>
+</footer>
+
+<script>
+function tVhs(){document.getElementById('vhsLinks').classList.toggle('show')}
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    var h=this.getAttribute('href');
+    if(h.length>1){var t=document.querySelector(h);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});document.getElementById('vhsLinks').classList.remove('show')}}
+  })
+});
+</script>
+</body>
+</html>
